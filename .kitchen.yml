@@ -1,0 +1,18 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: true
+
+platforms:
+- name: ubuntu-12.04
+
+suites:
+- name: default
+  run_list:
+    - recipe[build::default]
+  attributes: { region: "example"}
